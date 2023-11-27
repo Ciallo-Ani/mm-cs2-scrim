@@ -37,7 +37,6 @@ jobs:
           echo $(pwd)
           echo $HL2SDKCS2
           echo $MMSOURCE_DEV
-          ls -la
       - name: Update submodules
         run: |
           cd /home/runner/work/mm-cs2-scrim/mm-cs2-scrim/metamod-source
