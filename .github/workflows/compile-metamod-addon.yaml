@@ -3,13 +3,21 @@ on:
   - push
   - pull_request
 
-env:
-  HL2SDKCS2: ${{ github.workspace }}/mm-cs2-scrim/sdk
-  MMSOURCE_DEV: ${{ github.workspace }}/mm-cs2-scrim/metamod-source
-
 jobs:
   build:
-    runs-on: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+        HL2SDKCS2: ${{ github.workspace }}/mm-cs2-scrim/sdk
+        MMSOURCE_DEV: ${{ github.workspace }}/mm-cs2-scrim/metamod-source
+    container: ${{ matrix.container }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        include:
+          - os: windows-latest
+          - os: ubuntu-latest
+            container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
        
     steps:
       - name: Checkout
