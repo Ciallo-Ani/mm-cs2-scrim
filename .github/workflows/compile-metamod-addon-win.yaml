@@ -49,9 +49,7 @@ jobs:
           git config --global user.email github-actions@github.com
 
           cd /home/runner/work/mm-cs2-scrim/mm-cs2-scrim/ambuild && python3 ./setup.py install
-          ls -la
           cd /home/runner/work/mm-cs2-scrim/mm-cs2-scrim
-          ls -la
           mkdir build && cd build && python3 ../configure.py --enable-optimize --symbol-files --sdks cs2 --targets x86_64
           ambuild
 
