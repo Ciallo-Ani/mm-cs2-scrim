@@ -56,4 +56,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ runner.os }}
-          path: cs2scrim/build/package
+          path: mm-cs2-scrim/build/package
