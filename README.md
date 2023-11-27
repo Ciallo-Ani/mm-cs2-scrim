@@ -15,7 +15,7 @@ I might not update that text until a next "official" release of the addon, so in
 Copy the content of the file https://github.com/marqdevx/mm-cs2-scrim/blob/main/gamedata/cs2fixes.games.txt onto your `addons\cs2scrim\gamedata\cs2fixes.games.txt`
 
 # Addon information
-This plugin adds the minimum requirements for competitive teams that need a more handy way of managing a few commands from the server side, like config management or replay recording.
+This plugin adds the minimum requirements for competitive teams that need a more handy way of managing a few commands from the server side, like config management or replay recording..
 
 ## Available Commands
 
