@@ -976,6 +976,34 @@ CON_COMMAND_CHAT(pracc, "Practice mode")
 	//ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX"Admin commands: \4.pracc\1, \4.scrim\1, \4.record\1, \4.stoprecord\1, \4.map\1");
 }
 
+//爆头模式
+CON_COMMAND_CHAT(headshot, "headshot mode")
+{
+	if (!player)
+		return;
+	
+	int iCommandPlayer = player->GetPlayerSlot();
+
+	ZEPlayer *pPlayer = g_playerManager->GetPlayer(player->GetPlayerSlot());
+
+	if (!pPlayer->IsAdminFlagSet(ADMFLAG_SLAY))
+	{
+		ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX "You don't have access to this command.");
+		return;
+	}
+
+	practiceMode = true;
+
+	char buf[256];
+	//V_snprintf(buf, sizeof(buf), "exec %s", args[1]);
+
+	g_pEngineServer2->ServerCommand("exec headshot");
+
+	ClientPrint(player, HUD_PRINTTALK, CHAT_PREFIX"Headshot mode loaded");
+	ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX"Available commands: \4.pause\1, \4.unpause\1");
+	//ClientPrintAll(HUD_PRINTTALK, CHAT_PREFIX"Admin commands: \4.pracc\1, \4.scrim\1, \4.record\1, \4.stoprecord\1, \4.map\1");
+}
+
 CON_COMMAND_CHAT(forceunpause, "Force unpause")
 {
 	if (!player)
